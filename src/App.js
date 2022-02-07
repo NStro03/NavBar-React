@@ -1,10 +1,24 @@
 import React from 'react'
 import Navbar from './Navbar'
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Error from './pages/Error'
+
 function App() {
   return (
-    <>
-      <h2>navbar project setup</h2>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </Router>
   )
 }
 
